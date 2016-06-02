@@ -1,0 +1,17 @@
+<h1>Welcome</h1>
+<h2>Please Sign In</h2>
+
+<article>
+	<form method="POST" action="/sign-in-process">
+		<br>
+		<label for= "username">Username: </label>
+		<input type="text" name="username"></input>
+		</br>
+
+		<br>
+		<label for ="password">Password: </label>	
+		<input type="password" name="password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"></input>
+		</br>
+		<input type="submit"></label>
+		</br>
+	</form>

@@ -1,0 +1,26 @@
+<article>
+
+<%if @username.blank?%>
+	<%= '<h1> Welcome To Your Classes Guest </h1>'%>
+	<% else %>
+	<%="<h1>Welcome To Your Class Page #{@username}</h1>"%>
+	<%end%> 
+
+<%if @classses.blank?%>
+	<%= '<h1> You Are Not Enrolled in Any Classses </h1>'%>
+<% else %>
+	<%="<h1>Here are your Classes</br></h1>"%>
+		<%count = 1%>
+		<% @classses.each do |item|%>
+			<% @classs = Classs.find(item.classs.id)%>
+	 		<%="#{count}, #{@classs.subject} </br> #{@classs.teacher} </br>"%>
+	 		<%count = count +1%>
+	 	<%end%>
+	<%="</br>" %>
+<%end%> 
+	
+	<%= "<br>" %>
+	<%= "<a> href = "/welcome">Click Here to Go To Home Page</a>" %> 
+	<% "<br>" %>
+
+</article>

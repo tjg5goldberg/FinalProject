@@ -1,0 +1,43 @@
+<article>
+
+<%if @username.blank?%>
+	<%= '<h1> Welcome To Your Notes Guest </h1>'%>
+	<% else %>
+	<%="<h1>Welcome To Your Notes Page #{@username}</h1>"%>
+	<%end%> 
+
+	<p>
+		<br>
+
+		<form method="POST" action="/notes_process">
+
+		<label for= "notes">Note for Class: </label>
+		<input type="text" name="subject"></input>
+
+		<br>
+
+		<label for= "notes">Create New Note: </label>
+		<input type="text" name="note"></input>
+		</br>
+
+		<br>
+		<input type="submit"></label>
+		</br>
+	<p>  
+
+<%@notes = Note.where(user_id: @current_user.id) %>
+
+<%if @notes.blank?%>
+	<%= '<h1> You Do Not Have Any Notes </h1>'%>
+	<% else %>
+	<%="<h1>Here are your Notes #{@username}: </br></h1>"%>
+		<%@notes.each do |item|%>
+	 		<%="Class: #{Classs.find(item.classs_id).subject} <br> Note: #{item.text} "%>
+	 		<% "</br>" %>
+	 	<%end%>
+	<% "</br>" %>
+<%end%> 
+
+	<br><a href = "/welcome">Click Here to Go To Home Page</a></br>
+
+</article>
